@@ -64,9 +64,9 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-InboxPolicy provides a Send-Decision Email Verification API that helps applications determine whether to send an email to a given address. By calling a single endpoint, developers receive a decision (send, review, or avoid), confidence score, and reasoning, enabling cost‑effective email outreach and reducing bounce rates. The service is built for AI agents and integrates via REST and MCP, offering pay‑per‑call pricing and no free tier, with support for USDC payments.
+InboxPolicy provides a Send-Decision Email Verification API that evaluates email addresses and returns a decision—send, review, or avoid—along with evidence. The service charges $0.01 per verification via the x402 endpoint, offers free 72‑hour re‑verification, and requires no account to start. It includes bulk verification, detailed analytics, and integrates with AI agents. The platform also offers a free tier for low‑volume testing, supports webhook callbacks for real‑time results, and provides compliance with GDPR and CCPA. Users can access SDKs in multiple languages and view extensive guides on best practices.
 
-**Areas:** Company · EmailVerification · API · AI · Payments · Pricing
+**Areas:** EmailVerification · API · SaaS · SendDecision · DataQuality
 
 ## inboxpolicy-com on APIs.io
 
@@ -74,7 +74,7 @@ Everything profiled for inboxpolicy-com is published on APIs.io rather than in t
 
 ### APIs (1)
 
-- [inboxpolicy-com Verification API](https://apis.io/apis/inboxpolicy-com/inboxpolicy-com-verification-api/) — The Verification API from inboxpolicy-com — 3 operation(s) for verification.
+- [InboxPolicy API](https://apis.io/apis/inboxpolicy-com/inboxpolicy-api/) — Email verification API with send-decision responses.
 
 ### Published properties
 
@@ -85,6 +85,23 @@ Each property below is a page on APIs.io carrying the machine-readable artifact 
 Which operations an agent can call, which act, and which need a human in the loop.
 
 - [Inboxpolicy Com Agentic Access](https://apis.io/agentic-access/inboxpolicy-com/inboxpolicy-com-agentic-access/)
+
+#### JSON Schema (6)
+
+The data models the API reads and writes.
+
+- [CaptureSession](https://apis.io/schemas/inboxpolicy-com/inboxpolicy-com-capture-session/)
+- [Connector](https://apis.io/schemas/inboxpolicy-com/inboxpolicy-com-connector/)
+- [CreateRunRequest](https://apis.io/schemas/inboxpolicy-com/inboxpolicy-com-create-run-request/)
+- [CreateSecretRequest](https://apis.io/schemas/inboxpolicy-com/inboxpolicy-com-create-secret-request/)
+- [File](https://apis.io/schemas/inboxpolicy-com/inboxpolicy-com-file/)
+- [Run](https://apis.io/schemas/inboxpolicy-com/inboxpolicy-com-run/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Inboxpolicy Com Context](https://apis.io/jsonld/inboxpolicy-com/inboxpolicy-com-context/)
 
 #### Governance rules (1)
 
@@ -99,11 +116,23 @@ Authentication, trust centre, and vulnerability disclosure.
 - [Inboxpolicy Com Authentication](https://apis.io/security/inboxpolicy-com/inboxpolicy-com-authentication/)
 - [Inboxpolicy Com Domain Security](https://apis.io/security/inboxpolicy-com/inboxpolicy-com-domain-security/)
 
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Inboxpolicy Com Scopes](https://apis.io/scopes/inboxpolicy-com/inboxpolicy-com-scopes/)
+
 #### Plans and pricing (1)
 
 Published plans, tiers and prices.
 
 - [Inboxpolicy Com Plans Pricing](https://apis.io/plans/inboxpolicy-com/inboxpolicy-com-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Inboxpolicy Com Rate Limits](https://apis.io/rate-limits/inboxpolicy-com/inboxpolicy-com-rate-limits/)
 
 ## Where to find this API
 
@@ -111,24 +140,25 @@ Links to the company's own pages. This repository publishes no copy of their spe
 
 - [Website](https://inboxpolicy.com/)
 - [Documentation](https://inboxpolicy.com/docs)
+- [API reference](https://inboxpolicy.com/docs)
 - [Pricing](https://inboxpolicy.com/pricing)
 - [Terms of service](https://inboxpolicy.com/terms)
 - [Privacy policy](https://inboxpolicy.com/privacy)
 
 ## API Evangelist rating
 
-**Kin Score 47.0** — developing · rubric 0.25.0 · scored 2026-10-31
+**Kin Score 54.5** — strong · rubric 0.25.0 · scored 2026-10-30
 
 | Facet | Score |
 |---|---|
 | Discoverability | 66.1 |
-| Contract quality | 44.7 |
+| Contract quality | 58.3 |
 | Contract governance | 79.1 |
 | Operational transparency | 0.0 |
-| Developer ergonomics | 37.4 |
+| Developer ergonomics | 44.5 |
 | Access clarity | 60.0 |
 
-**Agent readiness 35.4** — agent-ready
+**Agent readiness 41.4** — agent-ready (gated down from agent-native)
 
 | Agent-readiness dimension | Result |
 |---|---|
@@ -137,10 +167,10 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | Reversibility Documented | — |
 | MCP Server | documented (partial credit) |
 | Auth Clarity | bearer (partial credit) |
-| Idempotency | — |
-| Error Semantics | derived (partial credit) |
-| OpenAPI Examples | verified |
-| Rate Limit Signal | — |
+| Idempotency | documented (partial credit) |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
 | Event Surface Described | — |
 | Agent Skills | unknown |
 | Well Known Catalog | — |
@@ -151,10 +181,10 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | Protected Resource Metadata | — |
 | Dynamic Client Registration | — |
 | Agentic Commerce | — |
-| Pagination Ratio | na |
+| Pagination Ratio | partial |
 | Operation Distinctiveness | distinct |
 
-**Regulatory alignment 20.8** — Payments
+**Regulatory alignment 34.3** — Horizontal (data, software, accessibility, platform)
 
 The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/inboxpolicy-com/](https://apis.io/providers/inboxpolicy-com/).
 
